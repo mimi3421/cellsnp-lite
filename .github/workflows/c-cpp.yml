@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install deps
-      run: sudo apt-get update && sudo apt-get -y install p7zip-full libc6-dev
+      run: sudo apt-get update && sudo apt-get -y install p7zip-full libc6-dev libcurl4-{gnutls,nss,openssl}-dev
     - name: configure
       run: ./configure
     - name: make
