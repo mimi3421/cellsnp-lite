@@ -14,9 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install deps
-      run: sudo apt-get update && sudo apt-get -y install p7zip-full libc6-dev libcurl4-openssl-dev libhts3
+      run: sudo apt-get update && sudo apt-get -y install p7zip-full libc6-dev libcurl4-openssl-dev libhts3 htslib
     - name: configure
-      run: ./configure
+      run: ./configure LDFLAGS="-static -fPIC"
     - name: make
       run: make
     - name: make check
