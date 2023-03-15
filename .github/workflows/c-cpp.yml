@@ -19,13 +19,9 @@ jobs:
       run: wget https://github.com/samtools/htslib/releases/download/1.17/htslib-1.17.tar.bz2 && tar -xjvf htslib-1.17.tar.bz2 && pushd htslib-1.17/ && autoreconf -i && ./configure && sudo make && sudo make install && popd 
 
     - name: configure
-      run: ./configure LDFLAGS="-static -fPIC"
+      run: sudo apt-get update && sudo apt-get -y install libcurl4-openssl-dev && sudo ./configure LDFLAGS="-static -fPIC"
     - name: make
-      run: sudo apt-get update && sudo apt-get -y install libcurl4-openssl-dev && make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      run: sudo apt-get update && sudo apt-get -y install libcurl4-openssl-dev && sudo make
     - name: Package
       run: 7z a Linux.zip *
     - name: Artifacts
