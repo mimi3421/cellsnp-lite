@@ -16,10 +16,10 @@ jobs:
     - name: Install libcurl
       run: sudo apt-get update && sudo apt-get -y install p7zip-full libc6-dev libcurl4-openssl-dev pkg-config autoconf libssl-dev libdeflate-dev
     - name: Install deps
-      run: wget https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2 && tar -xjvf htslib-1.12.tar.bz2 && pushd htslib-1.12/ && autoreconf -i && ./configure && sudo make && sudo make install && popd 
+      run: wget https://github.com/samtools/htslib/releases/download/1.17/htslib-1.17.tar.bz2 && tar -xjvf htslib-1.17.tar.bz2 && pushd htslib-1.17/ && autoreconf -i && ./configure && sudo make && sudo make install && popd 
 
     - name: configure
-      run: autoreconf -iv && ./configure
+      run: autoreconf -iv && ./configure --with-libdeflate
     - name: make
       run:  make
     - name: Package
