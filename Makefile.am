@@ -24,7 +24,7 @@ cellsnp_lite_SOURCES = src/cellsnp.c src/csp.c \
 ##   with configure options
 cellsnp_lite_CPPFLAGS = -Isrc @HTSLIB_CPPFLAGS@
 
-cellsnp_lite_CFLAGS = -g -Wall -O2 -Wno-unused-function
+cellsnp_lite_CFLAGS = -g -Wall -O2 -Wno-unused-function -ldeflate
 
 ## The -pthread option is forced to be added to _LDFLAGS by autoreconf
 cellsnp_lite_LDFLAGS = @HTSLIB_LDFLAGS@ -pthread
